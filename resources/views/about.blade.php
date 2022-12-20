@@ -5,3 +5,4 @@
     <h4>{{ $email }}</h4>
     <img src="img/{{ $image }}" alt="{{ $name }}">
 @endsection
+
