@@ -38,21 +38,20 @@ Route::get('post/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories', function() {
     return view('categories', [
         "title" => "Post Categories",
-        "categories" => Category::all()
+        "categories" => Category::with('posts')->get()
     ]);
 });
 
 Route::get('/categories/{category:slug}', function(Category $category) {
-    return view('category', [
-        "title" => $category->name,
-        "posts" => $category->posts,
-        "category" => $category->name
+    return view('posts', [
+        "title" => "Post By: $category->name",
+        "posts" => $category->posts->load('category', 'user')
     ]);
 });
 
 Route::get('/author/{author:username}', function(User $author) {
     return view('posts', [
-        "title" => "Post By Author",
-        "posts" => $author->posts    
+        "title" => "Post By: $author->name",
+        "posts" => $author->posts->load('category', 'user')   
     ]);
 });

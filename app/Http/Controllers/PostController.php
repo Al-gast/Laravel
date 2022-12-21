@@ -9,9 +9,8 @@ class PostController extends Controller
 {
     public function index() {
         return view('posts', [
-            "title" => "post",
-            "posts" => Post::latest()->get()
-            // "posts" => Post::all()
+            "title" => "All Post",
+            "posts" => Post::with(['user', 'category'])->latest()->get()
         ]);
     }
 
