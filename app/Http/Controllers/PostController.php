@@ -7,11 +7,12 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index() {
+    public function index() 
+    {  
         return view('posts', [
             "title" => "All Post",
             "active" => "posts",
-            "posts" => Post::with(['user', 'category'])->latest()->get()
+            "posts" => Post::latest()->filter(request(['search']))->paginate(7)->withQueryString()
         ]);
     }
     

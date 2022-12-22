@@ -2,10 +2,21 @@
 @extends('layouts.main')
 
 @section('container')
-<h1 class="mb-3">{{ $title }}</h1>
+<h1 class="mb-3 text-center">{{ $title }}</h1>
+
+<div class="row justify-content-center mb-3">
+    <div class="col-md-6">
+        <form action="/blog">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}"/>
+                <button class="btn btn-info text-light" type="submit">search</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 @if ($posts->count())
-    <div class="card mb-3">
+    <div class="card mb-4">
         <img src="https://source.unsplash.com/1200x400/?technologies" class="card-img-top" alt="...">
         <div class="card-body text-center">
             <h4 class="card-title"><a href="" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h4>
@@ -16,9 +27,6 @@
             <a href="/post/{{ $posts[0]->slug }}" class="btn btn-primary">Read More</a>
         </div>
     </div>
-@else 
-    <p class="text-center fs-4">No Post Find.</p>
-@endif
 
     <div class="container">
         <div class="row">
@@ -41,4 +49,9 @@
         </div>
     </div>
 
+    @else 
+        <p class="text-center fs-4">No Post Find.</p>
+    @endif
+
+    {{ $posts->links() }}
 @endsection
