@@ -15,12 +15,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(3)->create();   
-        \App\Models\Category::factory(2)->create();   
+        // \App\Models\Category::factory(2)->create();   
         \App\Models\Post::factory(20)->create();     
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\Category::factory(1)->create([
+            'name' => 'Programming',
+            'slug' => 'programming',
+        ]);
+
+        \App\Models\Category::factory(1)->create([
+            'name' => 'Web Design',
+            'slug' => 'web-design',
+        ]);
+        
+        \App\Models\Category::factory(1)->create([
+            'name' => 'Personal',
+            'slug' => 'personal',
+        ]);
     }
 }

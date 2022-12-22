@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
 <div class="container">
     <a class="navbar-brand" href="#">Blog</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,16 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
         <li class="nav-item">
-        <a class="nav-link {{ ($title === "home") ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+        <a class="nav-link {{ ($active === "home") ? 'active' : '' }}" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ ($title === "about") ? 'active' : '' }}" href="/about">About</a>
+        <a class="nav-link {{ ($active === "about") ? 'active' : '' }}" href="/about">About</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ ($title === "post") ? 'active' : '' }}" href="/blog">Blog</a>
+        <a class="nav-link {{ ($active === "posts") ? 'active' : '' }}" href="/blog">Blog</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link {{ ($title === "categories") ? 'active' : '' }}" href="/categories">Categories</a>
+        <a class="nav-link {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Categories</a>
         </li>
     </ul>
     </div>
